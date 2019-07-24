@@ -1,0 +1,22 @@
+﻿@{
+    <!DOCTYPE html>
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="jumbotron">   
+</div>
+
+<div class="row">
+    @foreach(FurnitureStore.Models.Promo p in ViewBag.Promoes)
+    { 
+    <div class="col-md-4">
+        <article>
+            <h2>@p.PromoName</h2>
+            <div class="article-image" style="background:url(@p.PromoImage)"></div>
+            <h3>@p.PromoDescription</h3>
+        </article>
+    </div>
+    }
+</div>

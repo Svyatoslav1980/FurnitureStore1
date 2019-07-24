@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Furny</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/scripts/jquery-1.10.2.js") 
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+    <script src="https://use.fontawesome.com/6027056370.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Furny", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Information", "Information", "Home")</li>
+                    <li>@Html.ActionLink("Services", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacts", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Profile", "ClientDetails", "Home")</li>
+                    <li>@Html.ActionLink("Cart", "ShopingCartsView", "Home")</li>
+                    <li><h3>@Session["count"]</h3></li>
+                    <li><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
+                    <li>@Html.ActionLink("Orders history", "GetOrders", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Living room", "LivingRoom", "Home")</li>
+                    <li>@Html.ActionLink("Dining room", "DiningRoom", "Home")</li>
+                    <li>@Html.ActionLink("Badroom", "BadRoom", "Home")</li>
+                    <li>@Html.ActionLink("Garden furniture", "GardenFurniture", "Home")</li>
+                    <li>@Html.ActionLink("Interior items", "InteriorItems", "Home")</li>
+                </ul>
+            </div>
+            <form method = "get" action="@Url.Action("ProductSearch", "Home")">
+                <input type="text" name="name" id="name">
+                <input type="submit" value="Search" />
+            </form>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Furny</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

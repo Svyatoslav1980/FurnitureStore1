@@ -1,0 +1,20 @@
+﻿
+@{
+    <!DOCTYPE html>
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Orders history";
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="jumbotron">
+</div>
+
+<table class="order-table">
+    <tr><td>Order date</td><td>Total amount</td></tr>
+    @foreach (FurnitureStore.Models.Order o in ViewBag.ClientOrders)
+    {
+        <tr><td>@o.OrderDate.ToString()  </td><td>  - @o.OrderSum.ToString("0.00") EUR</td></tr>
+    }
+
+</table>
+

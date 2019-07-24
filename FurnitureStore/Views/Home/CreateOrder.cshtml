@@ -1,0 +1,60 @@
+﻿@model FurnitureStore.Models.Client
+
+@{
+    <!DOCTYPE html>
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="jumbotron">
+</div>
+
+<h2>Please, add the order information</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
+
+<h3>Payment method</h3>
+<p>By card  <input type="radio" name="Payment" value="" checked /> By cash<input type="radio" name="Payment" value="" /></p>
+
+<form method="post" action="">
+    <table>
+        <tr><td><p>Your City: </p></td><td><input type="text" name="DeliveryCity" id="DeliveryCity" /> </td></tr>
+        <tr><td><p>Your adress: </p></td><td><input type="text" name="DeliveryAdress" id="DeliveryAdress" /> </td></tr>
+        <tr><td><input type="submit" value="Create" /> </td><td></td></tr>
+    </table>
+</form>

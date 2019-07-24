@@ -1,0 +1,28 @@
+﻿@{
+    <!DOCTYPE html>
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Cart";
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="jumbotron">
+</div>
+
+@{ 
+    decimal sumAll = 0;
+}
+@foreach(var x in ViewBag.ShopingCarts)
+{
+    sumAll += x.sum; 
+}
+
+<table>
+    @foreach (FurnitureStore.Models.ShopingCart s in ViewBag.ShopingCarts)
+    {
+        <tr><td>@s.product.ProductName|  </td><td>   @s.count.ToString()|  </td><td>   @s.sum.ToString("0.00") EUR</td> <td>@Html.ActionLink("Remove", "RemoveFromShopingCart", new { id = s.product.ProductID})</td></tr>
+    }
+    
+</table>
+<p><h3>Total: @sumAll.ToString("0.00") EUR</h3></p>
+
+<p>@Html.ActionLink("Create an order", "CreateOrder", "Home")</p>

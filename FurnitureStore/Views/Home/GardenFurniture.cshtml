@@ -1,0 +1,23 @@
+﻿
+@{
+    <!DOCTYPE html>
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Garden furniture";
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="jumbotron">
+</div>
+
+<div class="row">
+    @foreach (FurnitureStore.Models.SubCategory s in ViewBag.GardenFurniture)
+    {
+        <div class="col-md-4">
+            <article class="subCategory-article">
+                <h3>@s.SubCategoryName</h3>
+                <div class="article-image" style="background:url(@s.SubCategoryImage)"></div>
+                <p>@Html.ActionLink("See more", @s.SubCategoryName, "Home")</p>
+            </article>
+        </div>
+    }
+</div>

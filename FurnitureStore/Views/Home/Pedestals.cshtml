@@ -1,0 +1,28 @@
+﻿
+@{
+    <!DOCTYPE html>
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Interior items - Pedestals";
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="jumbotron">
+</div>
+
+<div class="row">
+    @foreach (FurnitureStore.Models.Product p in ViewBag.Pedestals)
+    {
+        <div class="col-md-4">
+            <article class="subCategory-article">
+                <h3>@p.ProductName</h3>
+                <div class="product-article-image" style="background:url(@p.ProductImage)"></div>
+                <h4>Size: @p.ProductLenght * @p.ProductWidth * @p.ProductHeight cm</h4>
+                <h4>Net weight: @p.ProductNetWeight</h4>
+                <h4>Color: @p.ProductColor</h4>
+                <h4>Price: @p.ProductPrice.ToString("0.00") EUR</h4>
+                <p>@Html.ActionLink("Add to cart", "AddShopingCart", new { id = p.ProductID })</p>
+            </article>
+        </div>
+    }
+</div>
+

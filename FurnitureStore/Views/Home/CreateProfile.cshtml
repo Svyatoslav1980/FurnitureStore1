@@ -1,0 +1,24 @@
+﻿
+@{
+    <!DOCTYPE html>
+    ViewBag.Title = "Adding personal information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+}
+
+<div class="jumbotron">
+</div>
+
+<h2>Please, add your personal information</h2>
+
+<form method="post" action="">
+    <table>
+        <tr><td><p>Your first name: </p></td><td><input type="text" name="FirstName" id="FirstName" /> </td></tr>
+        <tr><td><p>Your last name: </p></td><td><input type="text" name="LastName" id="LastName" /> </td></tr>
+        <tr><td><p>Your phone number: </p></td><td><input type="text" name="PhoneNr" id="PhoneNr" /> </td></tr>
+        <tr><td><p>Your email: </p></td><td><input type="text" name="Email" id="Email" /> </td></tr>
+        <tr><td><input type="submit" value="Save" /> </td><td></td></tr>
+    </table>
+</form>
+
+
